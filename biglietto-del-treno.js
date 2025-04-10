@@ -20,6 +20,7 @@ const inputAge = document.querySelector("#age");
 const generateTicketButtonEl = document.getElementById("generate-button");
 const deleteButton = document.getElementById("delete-button");
 const generateTicketFormEl = document.getElementById("generate-ticket-form");
+const errorMessage = document.getElementById("alert");
 const priceForKm = 0.21;
 let ticketFinalPrice = 0;
 
@@ -40,7 +41,6 @@ generateTicketFormEl.addEventListener("submit", function (event) {
   const kmToTravel = parseInt(inputKmEl.value);
   const age = inputAge.value;
   const ticketFullPrice = priceForKm * kmToTravel;
-  allCardEl.classList.add("d-block");
 
   //todo CONTROLLO DATI
   let validData = false;
@@ -49,9 +49,9 @@ generateTicketFormEl.addEventListener("submit", function (event) {
   if (!age || isNaN(age)) validData = true;
 
   if (validData) {
-    inputNameEl.classList.add("d-none");
-    inputKmEl.classList.add("d-none");
-    inputAge.classList.add("d-none");
+    generateTicketFormEl.classList.add("d-none");
+    errorMessage.classList.remove("d-none");
+    return;
   } else {
     allCardEl.classList.remove("d-none");
   }
