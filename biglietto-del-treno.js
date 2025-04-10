@@ -43,12 +43,12 @@ generateTicketFormEl.addEventListener("submit", function (event) {
   const ticketFullPrice = priceForKm * kmToTravel;
 
   //todo CONTROLLO DATI
-  let validData = false;
-  if (!fullName || !isNaN(fullName)) validData = true;
-  if (!kmToTravel || isNaN(kmToTravel)) validData = true;
-  if (!age || isNaN(age)) validData = true;
+  let hasError = false;
+  if (!fullName || !isNaN(fullName)) hasError = true;
+  if (!kmToTravel || isNaN(kmToTravel)) hasError = true;
+  if (!age || isNaN(age)) hasError = true;
 
-  if (validData) {
+  if (hasError) {
     generateTicketFormEl.classList.add("d-none");
     errorMessage.classList.remove("d-none");
     return;
@@ -79,4 +79,13 @@ generateTicketFormEl.addEventListener("submit", function (event) {
   nameCardEl.innerText = `${"Nome e Cognome: "} ${fullName}`;
   ageCardEl.innerText = `${"Fascia d'età: "} ${age}`;
   priceCardEl.innerText = `${"Prezzo finale: €"} ${ticketFinalPrice}`;
+});
+
+deleteButton.addEventListener("click", function () {
+  generateTicketFormEl.reset();
+  nameCardEl.innerText = "";
+  ageCardEl.innerText = "";
+  priceCardEl.innerText = "";
+  allCardEl.classList.add("d-none");
+  errorMessage.classList.add("d-none");
 });
