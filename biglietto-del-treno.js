@@ -13,6 +13,7 @@
 //? Ora che la logica è funzionante in pagina, possiamo andare a dedicarci allo stile, raffinando la parte di HTML e CSS in modo da renderla esteticamente gradevole.
 //Nota: Se non vi sentite particolarmente creativi, questa potrebbe essere un’implementazione da seguire per il secondo milestone. Potete scegliere di implementare una soluzione completamente diversa oppure simile, ma in ogni caso cercate di farla vostra.
 
+//todo FORM ELEMENT
 const inputNameEl = document.querySelector("#full-name");
 const inputKmEl = document.querySelector("#km-to-travel");
 const inputAge = document.querySelector("#age");
@@ -25,6 +26,11 @@ let ticketFinalPrice = 0;
 console.log("Nome e Cognome: ", inputNameEl.value);
 console.log("Km da percorrere: ", inputKmEl.value);
 console.log("Età :", inputAge.value);
+
+//todo CARD ELEMENT
+const nameCardEl = document.querySelector("#name-card .card-body");
+const ageCardEl = document.querySelector("#age-card .card-body");
+const priceCardEl = document.querySelector("#price-card .card-body");
 
 generateTicketFormEl.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -56,4 +62,8 @@ generateTicketFormEl.addEventListener("submit", function (event) {
   console.log("Fascia d'età: ", age);
   console.log("Km percorsi: ", kmToTravel);
   console.log("Prezzo Finale: €", ticketFinalPrice);
+
+  nameCardEl.innerText = `${fullName}`;
+  ageCardEl.innerText = `${age}`;
+  priceCardEl.innerText = `${ticketFinalPrice}`;
 });
