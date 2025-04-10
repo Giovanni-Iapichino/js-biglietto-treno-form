@@ -31,17 +31,30 @@ console.log("Età :", inputAge.value);
 const nameCardEl = document.querySelector("#name-card .card-body");
 const ageCardEl = document.querySelector("#age-card .card-body");
 const priceCardEl = document.querySelector("#price-card .card-body");
+const allCardEl = document.querySelector("#all-card");
 
+//todo SUBMIT FORM
 generateTicketFormEl.addEventListener("submit", function (event) {
   event.preventDefault();
   const fullName = inputNameEl.value;
   const kmToTravel = parseInt(inputKmEl.value);
   const age = inputAge.value;
   const ticketFullPrice = priceForKm * kmToTravel;
+  allCardEl.classList.add("d-block");
 
+  //todo CONTROLLO DATI
   let validData = false;
   if (!fullName || !isNaN(fullName)) validData = true;
   if (!kmToTravel || isNaN(kmToTravel)) validData = true;
+  if (!age || isNaN(age)) validData = true;
+
+  if (validData) {
+    inputNameEl.classList.add("d-none");
+    inputKmEl.classList.add("d-none");
+    inputAge.classList.add("d-none");
+  } else {
+    allCardEl.classList.remove("d-none");
+  }
 
   if (age === "1") {
     ticketFinalPrice = (ticketFullPrice - (ticketFullPrice * 20) / 100).toFixed(
