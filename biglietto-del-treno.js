@@ -15,6 +15,45 @@
 
 const inputNameEl = document.querySelector("#full-name");
 const inputKmEl = document.querySelector("#km-to-travel");
+const inputAge = document.querySelector("#age");
+const generateTicketButtonEl = document.getElementById("generate-button");
+const deleteButton = document.getElementById("delete-button");
+const generateTicketFormEl = document.getElementById("generate-ticket-form");
+const priceForKm = 0.21;
+let ticketFinalPrice = 0;
 
-console.log(inputNameEl);
-console.log(inputKmEl);
+console.log("Nome e Cognome: ", inputNameEl.value);
+console.log("Km da percorrere: ", inputKmEl.value);
+console.log("Età :", inputAge.value);
+
+generateTicketFormEl.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const fullName = inputNameEl.value;
+  const kmToTravel = parseInt(inputKmEl.value);
+  const age = inputAge.value;
+  const ticketFullPrice = priceForKm * kmToTravel;
+
+  let validData = false;
+  if (!fullName || !isNaN(fullName)) validData = true;
+  if (!kmToTravel || isNaN(kmToTravel)) validData = true;
+
+  if (age === "1") {
+    ticketFinalPrice = (ticketFullPrice - (ticketFullPrice * 20) / 100).toFixed(
+      2
+    );
+  }
+  if (age === "3") {
+    ticketFinalPrice = (ticketFullPrice - (ticketFullPrice * 40) / 100).toFixed(
+      2
+    );
+  }
+  if (age === "2") {
+    ticketFinalPrice = ticketFullPrice.toFixed(2);
+  }
+
+  console.log("Biglietto generato");
+  console.log("Nome: ", fullName);
+  console.log("Fascia d'età: ", age);
+  console.log("Km percorsi: ", kmToTravel);
+  console.log("Prezzo Finale: €", ticketFinalPrice);
+});
