@@ -12,3 +12,9 @@
 //! MILESTONE 3:
 //? Ora che la logica è funzionante in pagina, possiamo andare a dedicarci allo stile, raffinando la parte di HTML e CSS in modo da renderla esteticamente gradevole.
 //Nota: Se non vi sentite particolarmente creativi, questa potrebbe essere un’implementazione da seguire per il secondo milestone. Potete scegliere di implementare una soluzione completamente diversa oppure simile, ma in ogni caso cercate di farla vostra.
+
+const inputNameEl = document.querySelector("#full-name");
+const inputKmEl = document.querySelector("#km-to-travel");
+
+console.log(inputNameEl);
+console.log(inputKmEl);
