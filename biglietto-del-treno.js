@@ -46,7 +46,7 @@ generateTicketFormEl.addEventListener("submit", function (event) {
   let hasError = false;
   if (!fullName || !isNaN(fullName)) hasError = true;
   if (!kmToTravel || isNaN(kmToTravel)) hasError = true;
-  if (!age || isNaN(age)) hasError = true;
+  if (!age || !isNaN(age)) hasError = true;
 
   //# LOGICA PROGRAMMA
   if (hasError) {
@@ -57,17 +57,17 @@ generateTicketFormEl.addEventListener("submit", function (event) {
     allCardEl.classList.remove("d-none");
   }
 
-  if (age === "1") {
+  if (age === "minor") {
     ticketFinalPrice = (ticketFullPrice - (ticketFullPrice * 20) / 100).toFixed(
       2
     );
   }
-  if (age === "3") {
+  if (age === "over65") {
     ticketFinalPrice = (ticketFullPrice - (ticketFullPrice * 40) / 100).toFixed(
       2
     );
   }
-  if (age === "2") {
+  if (age === "over18") {
     ticketFinalPrice = ticketFullPrice.toFixed(2);
   }
 
