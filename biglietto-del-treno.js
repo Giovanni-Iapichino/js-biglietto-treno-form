@@ -78,9 +78,9 @@ generateTicketFormEl.addEventListener("submit", function (event) {
   console.log("Km percorsi: ", kmToTravel);
   console.log("Prezzo Finale: €", ticketFinalPrice);
 
-  nameCardEl.innerText = `${"Nome e Cognome: "} ${fullName}`;
-  ageCardEl.innerText = `${"Fascia d'età: "} ${age}`;
-  priceCardEl.innerText = `${"Prezzo finale: €"} ${ticketFinalPrice}`;
+  nameCardEl.innerText = `${"Nome e Cognome:  "} ${fullName}`;
+  ageCardEl.innerText = `${"Fascia d'età:  "} ${age}`;
+  priceCardEl.innerText = `${"Prezzo finale:  €"} ${ticketFinalPrice}`;
 });
 
 //# SVUOTA IL FORM
